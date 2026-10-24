@@ -1,5 +1,5 @@
 from crewai import Agent, LLM
-from tool import web_searcher
+from Crew.tools.tool import web_searcher
 
 
 llm = LLM(model="gemini-3.5-flash-lite")
