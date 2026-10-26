@@ -10,7 +10,7 @@ load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
 weather_server = MCPToolset(
     StdioTransport(
-        command= r"C:\Users\LENOVO\Practice\.venv\Scripts\python.exe",
+        command=r"C:\Users\LENOVO\Practice\.venv\Scripts\python.exe",
         args=[r"C:\Users\LENOVO\Practice\MCP\weather.py"],
     ),
     init_timeout=30,
@@ -18,8 +18,8 @@ weather_server = MCPToolset(
 
 webscraper_server = MCPToolset(
     StdioTransport(
-        command= r"C:\Users\LENOVO\Practice\.venv\Scripts\python.exe",
-        args = [r"C:\Users\LENOVO\Practice\MCP\webscraper.py"]
+        command=r"C:\Users\LENOVO\Practice\.venv\Scripts\python.exe",
+        args=[r"C:\Users\LENOVO\Practice\MCP\webscraper.py"],
     )
 )
 
@@ -33,6 +33,7 @@ async def main():
     async with agent:
         result = await agent.run("what is weather in Chandigarh")
     print(result)
+
 
 if __name__ == "__main__":
     asyncio.run(main())

@@ -67,5 +67,6 @@ def web_searcher(query: str) -> WebScraper:
 
     raise RuntimeError(f"No accessible search result found for query: {query}")
 
+
 if __name__ == "__main__":
     mcp.run(transport="stdio")

@@ -1,0 +1,14 @@
+MCP weather server fixes
+========================
+
+- Aligned the virtual environment to FastMCP 2.14.7, MCP 1.30.0, and
+  mcpadapt 0.1.20. FastMCP 4.x requires MCP 2.x, while CrewAI 1.15.x
+  requires MCP 1.x; that mismatch caused the server process to exit before
+  the MCP handshake and produced "Connection closed".
+- Switched the weather server import to `mcp.server.fastmcp.FastMCP`, which
+  is provided by the MCP 1.x package used by CrewAI. This removes the
+  incompatible standalone FastMCP import from the server startup path.
+- Kept the CrewAI kickoff inside the MCPServerAdapter context. This keeps
+  the stdio connection alive while the agent calls the weather tool.
+- Restricted weather error handling to request failures so programming and
+  protocol errors are not silently converted into successful-looking output.
